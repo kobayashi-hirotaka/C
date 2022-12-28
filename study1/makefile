@@ -9,17 +9,17 @@ OBJECTS = $(addprefix $(OBJDIR)/, $(SOURCES:.c=.o))
 CC = gcc
 CFLAGS = -Wall -O2 -finput-charset=CP932 -fexec-charset=CP932
 
-$(BINDIR)/$(TARGET): $(OBJECTS)
-	if not exist $(BIN) mkdir $(BIN)
+$(BINDIR)/$(TARGET): $(OBJECTS) | $(BINDIR)
 	$(CC) -o $@ $^
 
-$(OBJDIR)/%.o: %.c
-	if not exist $(OBJ) mkdir $(OBJ)
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY: clean
-clean:
-	cmd.exe /C del $(OBJECTS) $(BINDIR)/$(TARGET)
+$(BINDIR):
+	mkdir $(BIN)
+
+$(OBJDIR):
+	mkdir $(OBJ)
 
 run:
 	$(BINDIR)/$(TARGET) ${prog}
