@@ -77,7 +77,21 @@ void prog0() {
 ////////////////////////////////////////
 //‚±‚±‚æ‚è‰º‚ÖƒvƒƒOƒ‰ƒ€’Ç‰Á
 void prog1() {
-
+	int ix = 10;
+	int iy = 20;
+	printf("ix=%d iy=%d\n", ix, iy);
+	
+	double dx = 10.5;
+	double dy = 20.25;
+	printf("dx=%f dy=%f\n", dx, dy);
+	
+	short sx = 0x10;
+	short sy = 0x20;
+	printf("sx=%d sy=%d\n", sx, sy);
+	
+	char a = 'A'; // ”¼Šp•¶š
+	char aiu[ ] = "‚ "; // ‘SŠp•¶š
+	printf("a=%c aiu=%s\n", a, aiu);
 }
 
 /**
